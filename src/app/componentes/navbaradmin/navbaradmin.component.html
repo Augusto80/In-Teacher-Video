@@ -1,0 +1,37 @@
+<nav class=" navbar-expand-md navbar-light" style="background-color: #D50606;">
+    <div class="container">
+       
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarAdmin"
+            aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarAdmin">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/admin']">
+                        <p class="font-weight-bold"><span style="color: #ffffff;">Inicio</span></p>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/add-peliculas']">
+                        <p class="font-weight-bold"><span style="color: #ffffff;">Crear Pelicula</span></p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/reservas']">
+                        <p class="font-weight-bold"><span style="color: #ffffff;">Reservas</span></p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['iniciasesion']">
+                        <p class="font-weight-bold"><span style="color: #e7e41b;">Cerrar Sesión</span></p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

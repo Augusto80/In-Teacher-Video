@@ -1,0 +1,40 @@
+
+<nav class=" navbar-expand-md navbar-light" style="background-color: #D50606;">
+    <div class="container">
+       
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarPrincipal"
+            aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarPrincipal">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/inicio']">
+                        <p class="font-weight-bold"><span style="color: #ffffff;">Inicio</span></p>
+                    </a>
+                </li>
+                
+                <li class="nav-item"> 
+                    <a class="nav-link" routerLink= "/quienesomos">
+                        <p class="font-weight-bold"><span style="color: #ffffff;">Quienes Somos</span></p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/iniciasesion']">
+                        <p class="font-weight-bold"><span style="color: #e7e41b;">Inicia Sesión</span></p>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/registrate']">
+                        <p class="font-weight-bold"><span style="color: #ffffff;">¡Registrate!</span></p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+

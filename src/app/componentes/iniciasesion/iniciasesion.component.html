@@ -1,0 +1,95 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card  shadow-lg p-3 mb-5 bg-white>">
+                <div class="card-header bg-success"></div>
+
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-lg-6">
+                            <img class="logo horizontal-logo mx-auto d-block" width="300px"
+                                src="assets/NosotrosLogo.jpg" alt="M & S LTDA ">
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <form (submit)="submit()" [formGroup]="registerForm"
+                                class="text-center border border-light p-5">
+                                <div>
+                                    <h3 class="text-left">Login In</h3>
+                                </div> <br>
+                                <div>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input type="text" [(ngModel)]="login.rut" class="form-control" id="rut" placeholder="RUT"
+                                        formControlName="rut" required>
+                                    <span *ngIf="rut.invalid && (rut.dirty || rut.touched)" class="text-danger">
+                                        <span *ngIf="rut.errors.required">
+                                            ! El Nro RUT es obligatorio
+                                        </span>
+                                        <span *ngIf="rut.errors.minlength">
+                                            ! Mínimo de dígitos 7
+                                        </span>
+                                        <span *ngIf="rut.errors.maxlength">
+                                            ! Máximo de dígitos 11
+                                        </span>
+                                        <span *ngIf="rut.errors.mayor0">
+                                            ! El Nro RUT no puede ser negativo
+                                        </span>
+                                        <span *ngIf="rut.errors.pattern">
+                                            ! Solo números
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <br>
+                                <div>
+                                    <input type="password" [(ngModel)]="login.clave" class="form-control" id="clave" placeholder="Contraseña"
+                                        formControlName="clave" required>
+                                    <span *ngIf="clave.invalid && (clave.dirty || clave.touched)" class="text-danger">
+                                        <span *ngIf="clave.errors.required">
+                                            ! El campo Clave es obligatorio
+                                        </span>
+                                        <span *ngIf="clave.errors.minlength">
+                                            ! Mínimo de caracteres 6
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <br>
+                                <div class="text-left">
+                                    <button (click)="loginClientes()"class="btn btn-primary btn-block" type="button"
+                                        [disabled]="registerForm.invalid">Iniciar Sesión</button>
+                                </div><br>
+                                <div>
+                                    <p class="text-center"><span style="color: #000000;">¿Aún no tienes cuenta en
+                                            InTeacher - Video?</span></p>
+                                    <p> <a href="registrate" class="btn btn-success" role="button">¡Registrate
+                                            Ahora!</a> </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--div class="form-group col-lg-6">
+                            <form class="text-center border border-light p-5">
+
+                                <h4 class="text-left">LOG IN</h4>
+                                <br>
+                                <input type="email" id="useremail" class="form-control mb-4"
+                                    placeholder="Tu Email">
+
+                                <input type="password" id="passwordLogin" class="form-control mb-4"
+                                    placeholder="Tu Contraseña">
+
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-lg btn-block">Inicia sesión</button>
+                                </div>
+
+                            </form>
+                        </div-->

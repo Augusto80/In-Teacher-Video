@@ -1,0 +1,190 @@
+<app-navbaradmin></app-navbaradmin>
+<br>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card  shadow-lg p-3 mb-5 bg-white>">
+                <div class="card-header bg-primary text-white text-center font-weight-bold"> REGISTRO DE PELICULAS</div>
+
+                <div class="card-body">
+                    <form (submit)="submit()" [formGroup]="registerForm" onSubmit="this.reset()">
+                        <div class="form-row">
+                            <div class="form-group col-lg-6">
+                                <label class="control-label text-right" for="codigo">Código de película</label>
+                                <input type="text" [(ngModel)]="pelicula.codigo" class="form-control" id="codigo"
+                                    formControlName="codigo" required>
+                                <span *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)" class="text-danger">
+                                    <span *ngIf="codigo.errors.required">
+                                        ! El Código es obligatorio
+                                    </span>
+                                    <span *ngIf="codigo.errors.minlength">
+                                        ! Mínimo de dígitos 7
+                                    </span>
+                                    <span *ngIf="codigo.errors.maxlength">
+                                        ! Máximo de dígitos 10
+                                    </span>
+                                    <span *ngIf="codigo.errors.mayor0">
+                                        ! El Código no puede ser negativo
+                                    </span>
+                                    <span *ngIf="codigo.errors.pattern">
+                                        ! Solo números
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <label class="control-label text-right" for="titulo">Título</label>
+                                <input type="text" [(ngModel)]="pelicula.titulo" class="form-control" id="titulo"
+                                    formControlName="titulo" required>
+                                <span *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" class="text-danger">
+                                    <span *ngIf="titulo.errors.required">
+                                        ! Título es obligatorio
+                                    </span>
+                                    <span *ngIf="titulo.errors.minlength">
+                                        ! Mínimo de dígitos 3
+                                    </span>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-lg-6">
+                                <label class="control-label text-right" for="actores">Actores</label>
+                                <input type="text" [(ngModel)]="pelicula.actores" class="form-control" id="actores"
+                                    formControlName="actores" required>
+                                <span *ngIf="actores.invalid && (actores.dirty || actores.touched)" class="text-danger">
+                                    <span *ngIf="actores.errors.required">
+                                        ! El campo Actores es obligatorio
+                                    </span>
+                                    <span *ngIf="actores.errors.minlength">
+                                        ! Mínimo de caracteres 7
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <label class="control-label text-right" for="directores">Directores</label>
+                                <input type="text" [(ngModel)]="pelicula.directores" class="form-control"
+                                    id="directores" formControlName="directores" required>
+                                <span *ngIf="directores.invalid && (directores.dirty || directores.touched)"
+                                    class="text-danger">
+                                    <span *ngIf="directores.errors.required">
+                                        ! El campo directores es obligatorio
+                                    </span>
+                                    <span *ngIf="directores.errors.minlength">
+                                        ! Mínimo de caracteres 7
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                            <div class="form-group col-lg-6">
+                                <label class="control-label text-right" for="inventario">Inventario</label>
+                                <input type="text" [(ngModel)]="pelicula.inventario" class="form-control"
+                                    id="inventario" formControlName="inventario" required>
+                                <span *ngIf="inventario.invalid && (inventario.dirty || inventario.touched)"
+                                    class="text-danger">
+                                    <span *ngIf="inventario.errors.required">
+                                        ! El Campo Inventario es obligatorio
+                                    </span>
+                                    <span *ngIf="inventario.errors.minlength">
+                                        ! Mínimo de dígitos 7
+                                    </span>
+                                    <span *ngIf="inventario.errors.maxlength">
+                                        ! Máximo de dígitos 10
+                                    </span>
+                                    <span *ngIf="inventario.errors.mayor0">
+                                        ! El Campo Inventario no puede ser negativo
+                                    </span>
+                                    <span *ngIf="inventario.errors.pattern">
+                                        ! Solo números
+                                    </span>
+                                </span>
+                            </div>
+
+
+                            <div class="form-group col-lg-6">
+                                <label class="control-label text-right" for="descripcion">Descripción</label>
+                                <textarea [(ngModel)]="pelicula.descripcion" class="form-control" id="descripcion"
+                                    formControlName="descripcion" rows="3"></textarea>
+                                <span *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+                                    class="text-danger">
+                                    <span *ngIf="descripcion.errors.required">
+                                        ! El campo Descripción es obligatorio
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="text-center">
+                            <!--button class="btn-large btn-primary" type="submit">¡Registrate!</button-->
+                            <button *ngIf="!nuevo3" type="submit" class="btn btn-primary btn-lg"
+                                [disabled]="registerForm.invalid" (click)="altaPeliculas()">Registrar Película</button>
+                        </div>
+
+                        <div class="text-right">
+                            <button *ngIf="nuevo4" type="submit" class="btn btn-danger btn-lg"
+                                [disabled]="registerForm.invalid" (click)="editarPeliculas()">Modificar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--div class="table-responsive-xl">
+                <h5 class="font-weight-bold my-4 text-center text-dark ">Listado de peliculas registradas</h5>
+                <table id="tbpeliculas" *ngIf="hayRegistros();" class="table table-striped table-bordered">
+                    <thead class="text-center thead-light font-weight-bold">
+                        <tr>
+                            <th class="text-danger">Codigo</th>
+                            <th class="text-danger">Titulos</th>
+                            <th class="text-danger">Actores</th>
+                            <th class="text-danger">Directores</th>
+                            <th class="text-danger">Inventario</th>
+                            <th class="text-danger">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pelicula of peliculas">
+                            <td>{{pelicula.codigo}}</td>
+                            <td>{{pelicula.titulo}}</td>
+                            <td>{{pelicula.actores}}</td>
+                            <td>{{pelicula.directores}}</td>
+                            <td>{{pelicula.inventario}}</td>
+                            <td>{{pelicula.descripcion}}</td>
+                            <td> <button type="submit" style="background-color: #cf1313; color: white; "
+                                    (click)="bajaPeliculas(pelicula.codigo)"> Borrar </button> </td>
+                            <td> <button style="background-color: #2060eb; color: white; "
+                                    (click)="seleccionarPeliculas(pelicula.codigo)"> Seleccionar </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div-->
+
+            <div class="row">
+                <div class="col-lg-4" *ngFor="let pelicula of peliculas">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5>Titulo: {{pelicula.titulo}}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Código: {{pelicula.codigo}}</p>
+                            <p class="card-text">Actores: {{pelicula.actores}}</p>
+                            <p class="card-text">Directores: {{pelicula.directores}}</p>
+                            <p class="card-text">Inventario: {{pelicula.inventario}}</p>
+                            <p class="card-text">Descripción: {{pelicula.descripcion}}</p>
+                            <button style="background-color: #2060eb; color: white; "
+                                (click)="seleccionarPeliculas(pelicula.codigo)"> Seleccionar </button>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" style="background-color: #cf1313; color: white; "
+                                (click)="bajaPeliculas(pelicula.codigo)"> Borrar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
